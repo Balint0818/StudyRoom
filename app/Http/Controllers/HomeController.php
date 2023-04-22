@@ -17,12 +17,15 @@ class HomeController extends Controller
             }
             else
             {
-                return view('admin.home');
+                return view('user.home');
             }
         }
         else
         {
         return redirect()->back();
         }
+    }
+    public function index(){
+        return view('user.home');
     }
 }
