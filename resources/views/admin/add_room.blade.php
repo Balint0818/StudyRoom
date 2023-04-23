@@ -2,11 +2,18 @@
 <html lang="en">
 <head>
     <!-- Required meta tags -->
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Corona Admin</title>
-
+    <style type="text/css">
+        label {
+            display: inline-block;
+            width: 200px;
+        }
+    </style>
     @include('admin.link')
+
 </head>
 <body>
 <div class="container-scroller">
@@ -37,28 +44,38 @@
     @include('admin.navbar')
     <div class="container-fluid page-body-wrapper">
         <div class="container" align="center" style="padding-top: 100px">
-            <form>
+            <form action="{{url('upload_rooms')}}" method="post">
+                @csrf
                 <div style="padding: 15px;">
                     <label>Szoba neve:</label>
                     <input type="text" style="color:black" name="name" placeholder="Add meg a szoba nevét">
                 </div>
                 <div style="padding: 15px;">
-                    <label>Szoba neve:</label>
-                    <input type="text" style="color:black" name="name" placeholder="Add meg a szoba nevét">
+                    <label for="opening-time">Nyitvás:</label>
+                    <input value="08:00" type="time" id="opening" name="opening" style="color: black">
                 </div>
+
+                <div style="padding: 15px;">
+                    <label for="opening-time">Zárás:</label>
+                    <input value="16:00" type="time" id="closing" name="closing" style="color: black">
+                </div>
+
 
                 <div style="padding: 15px;">
                     <label>Emelet:</label>
-                    <select style="color: #0a58ca" >
-                        <option value="0">Földszint</option>
-                        <option value="1">Első emelet</option>
-                        <option value="2">Második emelet</option>
-                        <option value="3">Harmadik emelet</option>
-                        <option value="4">Negyedik emelet</option>
-                        <option value="5">Ötödik emelet</option>
+                    <select name="floor" style="color: black; text-weight: bold; text-align: center">
+                        <option value="Földszint">Földszint</option>
+                        <option value="Első emelet">Első emelet</option>
+                        <option value="Második emelet">Második emelet</option>
+                        <option value="Harmadik emelet">Harmadik emelet</option>
+                        <option value="Negyedik emelet">Negyedik emelet</option>
+                        <option value="Ötödik emelet">Ötödik emelet</option>
 
 
                     </select>
+                </div>
+                <div style="padding: 15px;">
+                    <input type="submit" class="btn btn-success" style="background: green">
                 </div>
             </form>
         </div>
