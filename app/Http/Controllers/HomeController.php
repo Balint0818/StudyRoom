@@ -17,7 +17,7 @@ class HomeController extends Controller
             }
             else
             {
-                return view('user.home');
+                return view('admin.home');
             }
         }
         else
