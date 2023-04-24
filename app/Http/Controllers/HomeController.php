@@ -68,6 +68,23 @@ class HomeController extends Controller
             return redirect()->back();
         }
     }
+
+    public function schedule()
+    {
+        $appointments = Appointment::all();
+        $events = array();
+        foreach ($appointments as $appointment) {
+            $events[] = [
+                'title' => $appointment->nk,
+                'start' => $appointment->starttime,
+                'end' => $appointment->endtime,
+            ];
+        }
+
+        return view('user.schedule', ['events' => $events]);
+    }
+
+
 }
 
 

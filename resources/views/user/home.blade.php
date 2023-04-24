@@ -8,7 +8,7 @@
 
 @include('user.room')
 
-
+@include('user.schedule')
 <!-- .banner-home -->
 
 <footer class="page-footer">
