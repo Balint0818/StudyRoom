@@ -31,7 +31,8 @@
             <form action="#">
                 <div class="input-group input-navbar">
                     <div class="input-group-prepend">
-                        <span class="input-group-text" id="icon-addon1"><span class="mai-search"></span></span>
+                        <span class="input-group-text" id="icon-addon1"><span class="mai-search"></span>
+                        </span>
                     </div>
                     <input type="text" class="form-control" placeholder="Enter keyword.." aria-label="Username"
                            aria-describedby="icon-addon1">

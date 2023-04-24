@@ -1,6 +1,7 @@
 @include('user.head')
 
 @include('user.topbar')
+@include('user.script')
 
 <div class="page-hero bg-image overlay-dark" style="background-image: url(../assets/img/bg_image_1.jpg);">
     <div class="page-section">
@@ -45,18 +46,19 @@
                 <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
                         <textarea name="message" id="message" class="form-control" rows="6"
                                   placeholder="Megjegyzés"></textarea>
-                    </div>
                 </div>
-
-                <div>
-                    <button type="submit" class="btn btn-primary mt-3 wow "
-                            style="visibility: visible;background: green">Send
-                    </button>
-                </div>
-
-            </form>
         </div>
+        <div style="margin-top: 300px;">
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary mt-3 wow "
+                    style="visibility: visible;background: green">Send
+            </button>
+        </div>
+        @include('user.schedule')
+
+        </form>
     </div>
 </div>
+</div>
 
-@include('user.script')

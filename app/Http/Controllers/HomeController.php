@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
+
     public function redirect()
     {
         $appointments = Appointment::all();
@@ -71,12 +72,23 @@ class HomeController extends Controller
     public function create_appointment()
     {
         if (Auth::id()) {
-            $room = room::all();
-            return view('user.create_appointment', compact('room'));
+            $appointments = Appointment::all();
+            $events = array();
+            foreach ($appointments as $appointment) {
+                $events[] = [
+                    'title' => $appointment->nk,
+                    'start' => $appointment->starttime,
+                    'end' => $appointment->endtime,
+                ];
+            }
+            $rooms = Room::all();
+            return view('user.create_appointment', ['room' => $rooms], ['events' => $events]);
+
         } else {
             return redirect()->back();
         }
     }
+
 
     public function schedule()
     {
