@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('neptunkod')->unique();
+            $table->string('nk')->unique();
             $table->string('usertype')->default(0);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

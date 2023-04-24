@@ -42,6 +42,8 @@ class HomeController extends Controller
         $data->name = $request->name;
         $data->email = $request->email;
         $data->date = $request->date;
+        $data->starttime = $request->starttime;
+        $data->endtime = $request->endtime;
         $data->room = $request->room;
         $data->nk = $request->nk;
         $data->message = $request->message;
