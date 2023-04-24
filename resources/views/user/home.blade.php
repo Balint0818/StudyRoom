@@ -91,17 +91,25 @@
                     <li class="nav-item">
                         <a class="btn btn-primary ml-lg-3" href="{{ route('login') }}">Login</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="btn btn-primary ml-lg-3" href="{{route('register')}}">Register</a>
-                    </li>
+                            <li class="nav-item">
+                                <a class="btn btn-primary ml-lg-3" href="{{route('register')}}">Register</a>
+                            </li>
                         @endauth
-                          @endif
+                    @endif
                 </ul>
             </div> <!-- .navbar-collapse -->
         </div> <!-- .container -->
     </nav>
 </header>
+@if(session()->has('message'))
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">
+            X
+        </button>
+        {{session()->get('message')}}
 
+    </div>
+@endif
 <div class="page-hero bg-image overlay-dark" style="background-image: url(../assets/img/bg_image_1.jpg);">
     <div class="hero-section">
         <div class="container text-center wow zoomIn">
@@ -163,7 +171,7 @@
     </div> <!-- .bg-light -->
 </div> <!-- .bg-light -->
 
-@include('user.doctor')
+@include('user.room')
 
 @include('user.latest')
 
