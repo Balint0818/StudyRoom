@@ -12,10 +12,19 @@ class HomeController extends Controller
 {
     public function redirect()
     {
+        $appointments = Appointment::all();
+        $events = array();
+        foreach ($appointments as $appointment) {
+            $events[] = [
+                'title' => $appointment->nk,
+                'start' => $appointment->starttime,
+                'end' => $appointment->endtime,
+            ];
+        }
         if (Auth::id()) {
             if (Auth::user()->usertype == '0') {
                 $room = room::all();
-                return view('user.home', compact('room'));
+                return view('user.home', compact('room'), ['events' => $events]);
             } else {
                 return view('admin.home');
             }
