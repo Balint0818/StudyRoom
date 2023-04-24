@@ -56,6 +56,16 @@ class HomeController extends Controller
 
 
     }
+
+    public function create_appointment()
+    {
+        if (Auth::id()) {
+            $room = room::all();
+            return view('user.create_appointment', compact('room'));
+        } else {
+            return redirect()->back();
+        }
+    }
 }
 
 

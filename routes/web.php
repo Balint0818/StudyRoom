@@ -35,3 +35,5 @@ Route::get('/add_room_view', [AdminController::class, 'addview']);
 Route::post('/upload_rooms', [AdminController::class, 'upload']);
 
 Route::post('/appointment', [HomeController::class, 'appointment']);
+
+Route::get('/create_appointment', [HomeController::class, 'create_appointment']);
