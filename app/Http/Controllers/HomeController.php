@@ -22,16 +22,8 @@ class HomeController extends Controller
                 'end' => $appointment->endtime,
             ];
         }
-        if (Auth::id()) {
-            if (Auth::user()->usertype == '0') {
                 $room = room::all();
                 return view('user.home', compact('room'), ['events' => $events]);
-            } else {
-                return view('admin.home');
-            }
-        } else {
-            return redirect()->back();
-        }
     }
 
     public function index()
@@ -103,6 +95,21 @@ class HomeController extends Controller
         }
 
         return view('user.schedule', ['events' => $events]);
+    }
+
+    public function admin_view()
+    {
+        if (Auth::id()) {
+            if (Auth::user()->usertype == '1') {
+                return view('admin.home');
+            } else {
+                return redirect()->back();
+            }
+
+        } else {
+            return redirect()->back();
+        }
+
     }
 
 

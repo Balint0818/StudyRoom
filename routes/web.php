@@ -40,4 +40,6 @@ Route::get('/create_appointment', [HomeController::class, 'create_appointment'])
 
 Route::get('/schedule', [HomeController::class, 'schedule']);
 
+Route::get('/adminpanel', [HomeController::class, 'admin_view']);
+
 
