@@ -37,26 +37,30 @@ class HomeController extends Controller
 
     }
 
-    public function appointment(Request $request)
+    protected function appointment(Request $request)
     {
-        $data = new appointment;
-
-        $data->name = $request->name;
-        $data->email = $request->email;
-        $data->date = $request->date;
-        $data->starttime = $request->starttime;
-        $data->endtime = $request->endtime;
-        $data->room = $request->room;
-        $data->nk = $request->nk;
-        $data->message = $request->message;
-        $data->status = 'Folyamatban';
         if (Auth::id()) {
-            $data->user_id = Auth::user()->id;
+            $data = new appointment;
+
+            $data->name = $request->name;
+            $data->email = $request->email;
+            $data->starttime = $request->starttime;
+            $data->endtime = $request->endtime;
+            $data->room = $request->room;
+            $data->nk = $request->nk;
+            $data->message = $request->message;
+            $data->status = 'Folyamatban';
+            if (Auth::id()) {
+                $data->user_id = Auth::user()->id;
+            }
+
+            $data->save();
+
+            return redirect()->back()->with('message', 'Fogalalás megtörtént, hamarosan értesítünk.');
+        } else {
+            return redirect()->back();
         }
 
-        $data->save();
-
-        return redirect()->back()->with('message', 'Fogalalás megtörtént, hamarosan értesítünk.');
 
 
     }
@@ -110,6 +114,11 @@ class HomeController extends Controller
             return redirect()->back();
         }
 
+    }
+
+    public function restrict()
+    {
+        return redirect()->back();
     }
 
 

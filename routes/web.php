@@ -32,14 +32,23 @@ Route::middleware([
 
 Route::get('/add_room_view', [AdminController::class, 'addview']);
 
+Route::get('/manage_users', [AdminController::class, 'manage_users']);
+
 Route::post('/upload_rooms', [AdminController::class, 'upload']);
 
+Route::get('/upload_rooms', [HomeController::class, 'restrict']);
+
 Route::post('/appointment', [HomeController::class, 'appointment']);
+
+Route::get('/appointment', [HomeController::class, 'restrict']);
+
 
 Route::get('/create_appointment', [HomeController::class, 'create_appointment']);
 
 Route::get('/schedule', [HomeController::class, 'schedule']);
 
 Route::get('/adminpanel', [HomeController::class, 'admin_view']);
+
+Route::get('/giveAdmin/{id}', [AdminController::class, 'giveAdmin']);
 
 
