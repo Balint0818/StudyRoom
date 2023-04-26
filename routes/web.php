@@ -55,6 +55,10 @@ Route::get('/update_user/{id}', [AdminController::class, 'update_user']);
 
 Route::post('/edituser/{id}', [AdminController::class, 'edituser']);
 
+Route::get('/manage_appointments', [AdminController::class, 'manage']);
+
+Route::get('/modify_app/{id}', [AdminController::class, 'modify']);
+
 
 
 

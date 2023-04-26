@@ -60,24 +60,25 @@
                         <tr>
                             <th style="padding: 10px">ID</th>
                             <th style="padding: 10px">Név</th>
-                            <th style="padding: 10px">E-mail cím</th>
                             <th style="padding: 10px">Neptun kód</th>
-                            <th style="padding: 10px">Admin</th>
+                            <th style="padding: 20px">Ettől</th>
+                            <th style="padding: 20px">Eddig</th>
                             <th style="padding: 10px">Módosítás</th>
-                            <th style="padding: 10px">Jogosultásg adás</th>
+                            <th style="padding: 10px">Törlés</th>
                         </tr>
-                        @foreach($users as $user)
+                        @foreach($data as $appointment)
                             <tr align="center" style="background: #bababa">
-                                <td style="padding: 10px">{{$user->id}}</td>
-                                <td style="padding: 10px">{{$user->name}}</td>
-                                <td style="padding: 10px">{{$user->email}}</td>
-                                <td style="padding: 10px">{{$user->nk}}</td>
-                                <td style="padding: 10px">{{$user->usertype}}</td>
-                                <td><a href="{{url('update_user',$user->id)}}" class="btn btn-success">Modify</a></td>
-                                <td><a href="{{url('giveAdmin',$user->id)}}" class="btn btn-success">Kinevezés
-                                        Adminná</a>
+                                <td style="padding: 10px">{{$appointment->id}}</td>
+                                <td style="padding: 10px">{{$appointment->name}}</td>
+                                <td style="padding: 10px">{{$appointment->nk}}</td>
+                                <td style="padding: 30px">{{$appointment->starttime}}</td>
+                                <td style="padding: 30px">{{$appointment->endtime}}</td>
+                                <td><a href="{{url('modify_app',$appointment->id)}}"
+                                       class="btn btn-success">Módosítás</a></td>
                                 </td>
-                                >
+                                <td><a href="{{url('delete_app',$appointment->id)}}" class="btn btn-danger">Törlés</a>
+                                </td>
+                                </td>
                             </tr>
                         @endforeach
 

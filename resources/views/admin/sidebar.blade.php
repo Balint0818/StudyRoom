@@ -76,5 +76,13 @@
                 <span class="menu-title">Felhasználók kezelése</span>
             </a>
         </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="{{url('manage_appointments')}}">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+                <span class="menu-title">Időpontok kezelése</span>
+            </a>
+        </li>
     </ul>
 </nav>
