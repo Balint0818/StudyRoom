@@ -58,12 +58,12 @@
         <li class="nav-item nav-category">
             <span class="nav-link">Navigation</span>
         </li>
-        <li class="nav-item menu-items">
+
 
         <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('add_room_view')}}">
               <span class="menu-icon">
-                <i class="mdi mdi-file-document-box"></i>
+                <i class="mdi mdi-file-document-edit"></i>
               </span>
                 <span class="menu-title">Tanulószobák létrehozása</span>
             </a>
@@ -71,7 +71,7 @@
         <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('manage_users')}}">
               <span class="menu-icon">
-                <i class="mdi mdi-file-document-box"></i>
+                <i class="mdi mdi-file-document-edit"></i>
               </span>
                 <span class="menu-title">Felhasználók kezelése</span>
             </a>
@@ -79,7 +79,7 @@
         <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('manage_appointments')}}">
               <span class="menu-icon">
-                <i class="mdi mdi-file-document-box"></i>
+                <i class="mdi mdi-file-document-edit"></i>
               </span>
                 <span class="menu-title">Időpontok kezelése</span>
             </a>
