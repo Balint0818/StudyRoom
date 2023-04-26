@@ -51,4 +51,10 @@ Route::get('/adminpanel', [HomeController::class, 'admin_view']);
 
 Route::get('/giveAdmin/{id}', [AdminController::class, 'giveAdmin']);
 
+Route::get('/update_user/{id}', [AdminController::class, 'update_user']);
+
+Route::post('/edituser/{id}', [AdminController::class, 'edituser']);
+
+
+
 

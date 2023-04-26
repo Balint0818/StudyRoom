@@ -53,8 +53,31 @@ class AdminController extends Controller
 
     public function giveAdmin($id)
     {
+        $data = User::find($id);
+        $data->usertype = '1';
+        $data->save();
+        return redirect()->back();
+    }
+
+    public function update_user($id)
+    {
+        $data = User::find($id);
+        return view('admin.update', compact('data'));
 
     }
 
+    public function edituser(Request $request, $id)
+    {
+        $data = User::find($id);
+        $data->name = $request->name;
+        $data->nk = $request->nk;
+        $data->email = $request->email;
+        $data->usertype = $request->usertype;
+
+        $data->save();
+
+        return redirect()->back()->with('message', 'Sikeresen módosítottad');
+
+    }
 
 }

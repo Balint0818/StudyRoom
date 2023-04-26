@@ -61,11 +61,12 @@
                     </li>
 
                     @if(Route::has('login'))
-
-                    <li class="nav-item">
-                                <a class="nav-link" href="{{url('adminpanel')}}">AdminPanel</a>
-                            </li>
                         @auth
+                            @if(Auth::user()->usertype=='1')
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{url('adminpanel')}}">AdminPanel</a>
+                                </li>
+                            @endif
                             <li class="nav-item">
                                 <a class="nav-link" href="{{url('create_appointment')}}">Időpont foglalás</a>
                             </li>

@@ -42,49 +42,45 @@
     @include('admin.sidebar')
     <!-- partial -->
     @include('admin.navbar')
+
     <div class="container-fluid page-body-wrapper">
 
         <div class="container" align="center" style="padding-top: 100px">
-            @if(session()->has('message'))
-                <div class="alert alert-success">
-                    <button type="button" class="close" data-dismiss="alert">
-                        X
-                    </button>
-                    {{session()->get('message')}}
 
-                </div>
-            @endif
-            <div class="container-fluid page-body-wrapper">
-                <div align="center" style="padding: 100px">
-                    <table>
-                        <tr>
-                            <th style="padding: 10px">ID</th>
-                            <th style="padding: 10px">Név</th>
-                            <th style="padding: 10px">E-mail cím</th>
-                            <th style="padding: 10px">Neptun kód</th>
-                            <th style="padding: 10px">Admin</th>
-                            <th style="padding: 10px">Módosítás</th>
-                            <th style="padding: 10px">Jogosultásg adás</th>
-                        </tr>
-                        @foreach($users as $user)
-                            <tr align="center" style="background: #bababa">
-                                <td style="padding: 10px">{{$user->id}}</td>
-                                <td style="padding: 10px">{{$user->name}}</td>
-                                <td style="padding: 10px">{{$user->email}}</td>
-                                <td style="padding: 10px">{{$user->nk}}</td>
-                                <td style="padding: 10px">{{$user->usertype}}</td>
-                                <td><a href="{{url('updateuser',$user->id)}}" class="btn btn-success">Modify</a></td>
-                                <td><a href="{{url('giveAdmin',$user->id)}}" class="btn btn-success">Kinevezés
-                                        Adminná</a>
-                                </td>
-                                >
-                            </tr>
-                        @endforeach
+            <form action="{{url('edit_user',$user->id)}}" method="post">
 
-
-                    </table>
+                @csrf
+                <div style="padding: 15px;">
+                    <label>Név</label>
+                    <input type="text" style="color:black" name="name" value="{{$data->name}}"
+                           placeholder="Add meg az új nevet">
                 </div>
 
-@include('admin.script')
+                <div style="padding: 15px;">
+                    <label>Neptun kód</label>
+                    <input type="text" style="color:black" name="nk" value="{{$data->nk}}"
+                           placeholder="Add meg az új Neptun kódot">
+                </div>
+
+                <div style="padding: 15px;">
+                    <label>E-mail</label>
+                    <input type="text" style="color:black" name="email" value="{{$data->email}}"
+                           placeholder="Add meg az új e-mailt">
+                </div>
+                <div style="padding: 15px;">
+                    <label>Admin</label>
+                    <input type="text" style="color:black" name="usertype" value="{{$data->usertype}}"
+                           placeholder="1--> Igen 0 ---> nem">
+                </div>
+
+                <div style="padding: 15px;">
+                    <input type="submit" class="btn btn-success" style="background: green">
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
 </body>
 </html>
