@@ -6,6 +6,8 @@ use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\AdminController;
 
+use App\Http\Middleware\checkAdmin;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,9 +34,9 @@ Route::middleware([
 
 Route::get('/add_room_view', [AdminController::class, 'addview'])->middleware('checkAdmin');
 
-Route::get('/manage_users', [AdminController::class, 'manage_users'])->middleware(\App\Http\Middleware\checkAdmin::class);
+Route::get('/manage_users', [AdminController::class, 'manage_users'])->middleware('checkAdmin');
 
-Route::post('/upload_rooms', [AdminController::class, 'upload'])->middleware(\App\Http\Middleware\checkAdmin::class);
+Route::post('/upload_rooms', [AdminController::class, 'upload'])->middleware('checkAdmin');
 
 Route::get('/upload_rooms', [HomeController::class, 'restrict']);
 
@@ -47,19 +49,19 @@ Route::get('/create_appointment', [HomeController::class, 'create_appointment'])
 
 Route::get('/schedule', [HomeController::class, 'schedule']);
 
-Route::get('/adminpanel', [HomeController::class, 'admin_view'])->middleware(\App\Http\Middleware\checkAdmin::class);
+Route::get('/adminpanel', [HomeController::class, 'admin_view'])->middleware('checkAdmin');
 
-Route::get('/giveAdmin/{id}', [AdminController::class, 'giveAdmin'])->middleware(\App\Http\Middleware\checkAdmin::class);
+Route::get('/giveAdmin/{id}', [AdminController::class, 'giveAdmin'])->middleware('checkAdmin');
 
-Route::get('/removeAdmin/{id}', [AdminController::class, 'removeAdmin'])->middleware(\App\Http\Middleware\checkAdmin::class);
+Route::get('/removeAdmin/{id}', [AdminController::class, 'removeAdmin'])->middleware('checkAdmin');
 
-Route::get('/update_user/{id}', [AdminController::class, 'update_user'])->middleware(\App\Http\Middleware\checkAdmin::class);
+Route::get('/update_user/{id}', [AdminController::class, 'update_user'])->middleware('checkAdmin');
 
-Route::post('/edituser/{id}', [AdminController::class, 'edituser'])->middleware(\App\Http\Middleware\checkAdmin::class);
+Route::post('/edituser/{id}', [AdminController::class, 'edituser'])->middleware('checkAdmin');
 
-Route::get('/manage_appointments', [AdminController::class, 'manage'])->middleware(\App\Http\Middleware\checkAdmin::class);
+Route::get('/manage_appointments', [AdminController::class, 'manage'])->middleware('checkAdmin');
 
-Route::get('/modify_app/{id}', [AdminController::class, 'modify'])->middleware(\App\Http\Middleware\checkAdmin::class);
+Route::get('/modify_app/{id}', [AdminController::class, 'modify'])->middleware('checkAdmin');
 
 
 

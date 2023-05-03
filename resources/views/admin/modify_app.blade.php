@@ -52,7 +52,7 @@
                 @csrf
                 <div style="padding: 15px;">
                     <label>Név:</label>
-                    <input type="text" style="color:black" name="name" value="{{$data->name}}"
+                    <input type="text" style="color:black" name="name" value="{{$data->name}}">
 
                 </div>
 
