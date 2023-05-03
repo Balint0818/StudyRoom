@@ -15,6 +15,7 @@
     @include('admin.link')
 
 </head>
+w
 <body>
 <div class="container-scroller">
     <div class="row p-0 m-0 proBanner" id="proBanner">
@@ -64,7 +65,7 @@
                             <th style="padding: 10px">Neptun kód</th>
                             <th style="padding: 10px">Admin</th>
                             <th style="padding: 10px">Módosítás</th>
-                            <th style="padding: 10px">Jogosultásg adás</th>
+                            <th style="padding: 10px">Jogosultság adás</th>
                         </tr>
                         @foreach($users as $user)
                             <tr align="center" style="background: #bababa">
@@ -74,14 +75,19 @@
                                 <td style="padding: 10px">{{$user->nk}}</td>
                                 <td style="padding: 10px">{{$user->usertype}}</td>
                                 <td><a href="{{url('update_user',$user->id)}}" class="btn btn-success">Modify</a></td>
-                                <td><a href="{{url('giveAdmin',$user->id)}}" class="btn btn-success">Kinevezés
-                                        Adminná</a>
-                                </td>
-                                >
+                                @if($user->usertype=='0')
+                                    <td>
+                                        <a href="{{url('giveAdmin',$user->id)}}" class="btn btn-success">Kinevezés
+                                            Adminná</a>
+                                    </td>
+                                @else
+                                    <td>
+                                        <a href="{{url('removeAdmin',$user->id)}}" class="btn btn-danger">Admin
+                                            elvétele</a>
+                                    </td>
+                                @endif
                             </tr>
                         @endforeach
-
-
                     </table>
                 </div>
 

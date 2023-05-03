@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
 
+
 use App\Models\User;
 use App\Models\Room;
 use Illuminate\Support\Facades\Auth;
@@ -14,30 +15,14 @@ class AdminController extends Controller
 
     public function addview()
     {
-        if (Auth::id()) {
-            if (Auth::user()->usertype == '1') {
-                return view('admin.add_room');
-            } else {
-                return redirect()->back();
-            }
-        } else {
-            return redirect()->back();
-        }
+        return view('admin.add_room');
+
     }
 
     public function manage_users()
     {
-        if (Auth::id()) {
-            $users = User::all();
-
-            if (Auth::user()->usertype == '1') {
-                return view('admin.manageusers', compact('users'));
-            } else {
-                return redirect()->back();
-            }
-        } else {
-            return redirect()->back();
-        }
+        $users = User::all();
+        return view('admin.manageusers', compact('users'));
     }
 
     public function upload(Request $request)
@@ -56,6 +41,14 @@ class AdminController extends Controller
     {
         $data = User::find($id);
         $data->usertype = '1';
+        $data->save();
+        return redirect()->back();
+    }
+
+    public function removeAdmin($id)
+    {
+        $data = User::find($id);
+        $data->usertype = '0';
         $data->save();
         return redirect()->back();
     }

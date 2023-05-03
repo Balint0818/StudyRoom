@@ -30,11 +30,11 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::get('/add_room_view', [AdminController::class, 'addview']);
+Route::get('/add_room_view', [AdminController::class, 'addview'])->middleware('checkAdmin');
 
-Route::get('/manage_users', [AdminController::class, 'manage_users']);
+Route::get('/manage_users', [AdminController::class, 'manage_users'])->middleware(\App\Http\Middleware\checkAdmin::class);
 
-Route::post('/upload_rooms', [AdminController::class, 'upload']);
+Route::post('/upload_rooms', [AdminController::class, 'upload'])->middleware(\App\Http\Middleware\checkAdmin::class);
 
 Route::get('/upload_rooms', [HomeController::class, 'restrict']);
 
@@ -47,17 +47,19 @@ Route::get('/create_appointment', [HomeController::class, 'create_appointment'])
 
 Route::get('/schedule', [HomeController::class, 'schedule']);
 
-Route::get('/adminpanel', [HomeController::class, 'admin_view']);
+Route::get('/adminpanel', [HomeController::class, 'admin_view'])->middleware(\App\Http\Middleware\checkAdmin::class);
 
-Route::get('/giveAdmin/{id}', [AdminController::class, 'giveAdmin']);
+Route::get('/giveAdmin/{id}', [AdminController::class, 'giveAdmin'])->middleware(\App\Http\Middleware\checkAdmin::class);
 
-Route::get('/update_user/{id}', [AdminController::class, 'update_user']);
+Route::get('/removeAdmin/{id}', [AdminController::class, 'removeAdmin'])->middleware(\App\Http\Middleware\checkAdmin::class);
 
-Route::post('/edituser/{id}', [AdminController::class, 'edituser']);
+Route::get('/update_user/{id}', [AdminController::class, 'update_user'])->middleware(\App\Http\Middleware\checkAdmin::class);
 
-Route::get('/manage_appointments', [AdminController::class, 'manage']);
+Route::post('/edituser/{id}', [AdminController::class, 'edituser'])->middleware(\App\Http\Middleware\checkAdmin::class);
 
-Route::get('/modify_app/{id}', [AdminController::class, 'modify']);
+Route::get('/manage_appointments', [AdminController::class, 'manage'])->middleware(\App\Http\Middleware\checkAdmin::class);
+
+Route::get('/modify_app/{id}', [AdminController::class, 'modify'])->middleware(\App\Http\Middleware\checkAdmin::class);
 
 
 

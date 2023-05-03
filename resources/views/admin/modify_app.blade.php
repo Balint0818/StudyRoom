@@ -51,26 +51,24 @@
 
                 @csrf
                 <div style="padding: 15px;">
-                    <label>Név</label>
+                    <label>Név:</label>
                     <input type="text" style="color:black" name="name" value="{{$data->name}}"
-                           placeholder="Add meg az új nevet">
+
                 </div>
 
                 <div style="padding: 15px;">
-                    <label>Neptun kód</label>
+                    <label>Neptun kód: </label>
                     <input type="text" style="color:black" name="nk" value="{{$data->nk}}"
                            placeholder="Add meg az új Neptun kódot">
                 </div>
 
                 <div style="padding: 15px;">
                     <label>Ettől</label>
-                    <input type="datetime-local" style="color:black" name="starttime" value="{{$data->starttime}}"
-                           placeholder="Add meg az új e-mailt">
+                    <input type="datetime-local" style="color:black" name="starttime" value="{{$data->starttime}}">
                 </div>
                 <div style="padding: 15px;">
                     <label>Eddig</label>
-                    <input type="datetime-local" style="color:black" name="endtime" value="{{$data->endtime}}"
-                           placeholder="1--> Igen 0 ---> nem">
+                    <input type="datetime-local" style="color:black" name="endtime" value="{{$data->endtime}}">
                 </div>
 
                 <div style="padding: 15px;">
