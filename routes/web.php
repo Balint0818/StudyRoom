@@ -6,6 +6,8 @@ use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\AdminController;
 
+use App\Http\Controllers\AppointmentController;
+
 use App\Http\Middleware\checkAdmin;
 
 /*
@@ -59,9 +61,15 @@ Route::get('/update_user/{id}', [AdminController::class, 'update_user'])->middle
 
 Route::post('/edituser/{id}', [AdminController::class, 'edituser'])->middleware('checkAdmin');
 
-Route::get('/manage_appointments', [AdminController::class, 'manage'])->middleware('checkAdmin');
 
-Route::get('/modify_app/{id}', [AdminController::class, 'modify'])->middleware('checkAdmin');
+//AppointmentController Admin Functions
+
+Route::get('/manage_appointments', [AppointmentController::class, 'manage'])->middleware('checkAdmin');
+
+Route::get('/modify_app/{id}', [AppointmentController::class, 'modify'])->middleware('checkAdmin');
+
+Route::get('/deleteAppointment/{id}', [AppointmentController::class, 'delete'])->middleware('checkAdmin');
+
 
 
 

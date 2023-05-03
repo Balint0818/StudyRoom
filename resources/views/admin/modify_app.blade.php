@@ -47,7 +47,7 @@
 
         <div class="container" align="center" style="padding-top: 100px">
 
-            <form action="{{url('#')}}" method="post">
+            <form action="{{url('updateAppointment',$data->id)}}" method="post">
 
                 @csrf
                 <div style="padding: 15px;">

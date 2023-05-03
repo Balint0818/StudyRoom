@@ -76,7 +76,7 @@
                                 <td><a href="{{url('modify_app',$appointment->id)}}"
                                        class="btn btn-success">Módosítás</a></td>
                                 </td>
-                                <td><a href="{{url('delete_app',$appointment->id)}}" class="btn btn-danger">Törlés</a>
+                                <td><a href="{{url('deleteAppointment',$appointment->id)}}" class="btn btn-danger">Törlés</a>
                                 </td>
                                 </td>
                             </tr>
