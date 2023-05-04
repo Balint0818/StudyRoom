@@ -46,6 +46,15 @@
     <div class="container-fluid page-body-wrapper">
 
         <div class="container" align="center" style="padding-top: 100px">
+            @if(session()->has('message'))
+                <div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert">
+                        X
+                    </button>
+                    {{session()->get('message')}}
+
+                </div>
+            @endif
 
             <form action="{{url('updateAppointment',$data->id)}}" method="post">
 

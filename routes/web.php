@@ -64,11 +64,13 @@ Route::post('/edituser/{id}', [AdminController::class, 'edituser'])->middleware(
 
 //AppointmentController Admin Functions
 
-Route::get('/manage_appointments', [AppointmentController::class, 'manage'])->middleware('checkAdmin');
+Route::get('/manage_appointments', [AppointmentController::class, 'manage'])->name('manage_appointments')->middleware('checkAdmin');
 
 Route::get('/modify_app/{id}', [AppointmentController::class, 'modify'])->middleware('checkAdmin');
 
 Route::get('/deleteAppointment/{id}', [AppointmentController::class, 'delete'])->middleware('checkAdmin');
+
+Route::post('/updateAppointment/{id}', [AppointmentController::class, 'update'])->middleware('checkAdmin');
 
 
 
