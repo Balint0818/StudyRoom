@@ -46,6 +46,9 @@ Route::post('/appointment', [HomeController::class, 'appointment']);
 
 Route::get('/appointment', [HomeController::class, 'restrict']);
 
+Route::get('/myappointments', [HomeController::class, 'myappointments']);
+
+Route::get('/delete/{id}', [HomeController::class, 'delete']);
 
 Route::get('/create_appointment', [HomeController::class, 'create_appointment']);
 

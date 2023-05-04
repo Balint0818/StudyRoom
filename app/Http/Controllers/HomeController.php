@@ -121,6 +121,29 @@ class HomeController extends Controller
         return redirect()->back();
     }
 
+    public function myappointments()
+    {
+        return view('user.myappointments', [
+            'appointments' => Appointment::query()->where('user_id', 'LIKE', auth()->id())
+                ->orderByDesc('created_at')
+                ->orderByDesc('id')
+                ->paginate(10),
+        ]);
+    }
+
+    public function delete($id)
+    {
+        $data = Appointment::find($id);
+        if ($data && $data->user_id != 0 && auth()->id() == $data->user_id) {
+            $data->delete();
+            return redirect()->back()->with('message', 'Sikeresen törölted az időpont foglalást!');
+        } else {
+            return redirect()->back()->with('message', 'Sikertelen!');
+        }
+
+
+    }
+
 
 }
 
