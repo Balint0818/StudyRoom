@@ -7,61 +7,123 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+# Egyszerű tanulószoba foglalás Laravel rendszerrel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Ez egy egyszerű foglalás rendszer Laravel-al, amely lehetővé teszi a felhasználók számára, hogy időpontot foglaljanak, az adminisztrátorok pedig kezeljék ezeket az időpontokat, esetekben pedig az adott felhasználókat is.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Telepítés
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+1. Klónozza le a repót:
 
-## Learning Laravel
+   ```
+   git clone https://github.com/username/simple-booking-laravel.git
+   ```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+2. Menjen a projektmappába:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+   ```
+   cd simple-booking-laravel
+   ```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+3. Telepítse a függőségeket:
 
-## Laravel Sponsors
+   ```
+   composer install
+   ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+4. Telepítse a Node.js-t és a szükséges függőségeket:
 
-### Premium Partners
+   ```
+   npm install
+   ```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+5. Hozzon létre egy `.env` fájlt és állítsa be az adatbázis beállításait:
 
-## Contributing
+   ```
+   cp .env.example .env
+   ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+6. Generálja a kulcsot:
 
-## Code of Conduct
+   ```
+   php artisan key:generate
+   ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+7. Migrálja az adatbázist:
 
-## Security Vulnerabilities
+   ```
+   php artisan migrate
+   ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+8. Futtassa a fejlesztői szervert:
 
-## License
+   ```
+   php artisan serve
+   ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-StudyRoom 
+   Ezen kívül a Vite.js-t is futtathatja, amely figyeli a forrásfájlok változásait és frissíti azokat azonnal a böngészőben:
+
+   ```
+   npm run dev
+   ```
+
+Győződjön meg róla, hogy a Node.js és az npm telepítve van a rendszerén a Vite.js futtatásához.
+
+## Használat
+
+A rendszer használatához először is regisztrálnia kell. Ezután bejelentkezhet, és foglalhat időpontot.
+
+Az adminisztrátori felület eléréséhez be kell jelentkeznie az admin felhasználóval.
+
+Az adminisztrátorok az admin felületen kezelhetik az időpontokat, például megváltoztathatják egyes paramétereiket esetleg törölhetik őket.
+
+A felhasználók láthatják az általuk foglalt időpontokat a "Saját időpontjaim" oldalon.
+
+## Kezdőoldal
+
+- Főoldal:  A felhasználó az oldal tetején található címke (One-Health) és a navigációs menü (Home, About Us, News, Időpont foglalás, Foglalásaim, Login, Register) segítségével navigálhat az oldalon. Az oldal tetején található topbar tartalmaz néhány hasznos információt, például a vállalat telefonszámát és e-mail címét. Az oldal egyéb részei az oldalon található tartalmat jelenítik meg, amelyek lehetnek például blogbejegyzések, időpontfoglalás, stb. Az alert üzenet a felhasználó számára egy rövid üzenetet jelenít meg, például egy sikeres foglalásról vagy bármilyen más fontos információról.
+    Tartalmaz egy "Elérhető tantermek" című címsort, amely alatt egy sor terem található, amelyek mindegyike egy kártya stílusú dizájnnal rendelkezik, és információkat tartalmaz a terem nevéről, emeletéről és nyitvatartási idejéről. A teremkártyákat egy "owl-carousel" nevű plugin segítségével jelenítjük meg, amely lehetővé teszi a felhasználók számára, hogy balra és jobbra görgetve megtekinthessék az összes termet. A teremek információit adatbázisból töltjük be, amelynek tartalmát egy adminisztrátor frissíti.
+
+- Időpont foglalás: Ez az oldal egy foglalási űrlapot jelenít meg egy felhasználó számára, amely lehetővé teszi számára, hogy időpontot foglaljon egy adott teremben. Az oldalon a felhasználó megadhatja a nevét, e-mail címét, foglalás kezdő és végpontját, a terem nevét és emeletét, valamint egy megjegyzést is adhat hozzá a foglaláshoz. Az oldalon található gomb megnyomásával a felhasználó elküldheti a foglalási igényét, amelyet a szerver oldalon feldolgoznak és hozzáadnak az adatbázishoz. Az oldalon emellett megjelenik a foglalt időpontok ütemezése is, hogy a felhasználók láthassák, hogy mely időpontokban mely teremek foglaltak.
+
+- Saját foglalásaim: Ez az oldal a felhasználó által korábban létrehozott foglalásokat mutatja meg egy táblázatban. A táblázat tartalmazza az összes foglalás nevét, kezdő és vég időpontját, szobáját, Neptun kódját és egy esetleges megjegyzést. A felhasználó lehetőséget kap arra is, hogy törölje a már korábban létrehozott foglalásokat.
+
+
+## Fejlesztői információk
+
+Ez a projekt a Laravel keretrendszeren alapul. A főbb fájlok a `app/Http/Controllers/HomeController.php` és a `resources/views` könyvtárban találhatók.
+
+Az időpontok megjelenítésére az [FullCalendar](https://fullcalendar.io/) JavaScript könyvtárat használtuk.
+
+## Kontrollerek
+
+AppointmentController:
+- validateInput: privát metódus, amely a Request objektumot validálja a megfelelő formátumú `nk` mezőre.
+- delete: a megadott `id` alapján törli az adott Appointment modell rekordját, majd a korábbi oldalra irányítja a felhasználót.
+- update: a megadott `id` alapján frissíti az adott Appointment modell rekordjának mezőit a Request objektumban található adatok alapján, majd az adminisztrációs oldalra irányítja a felhasználót.
+- modify: a megadott `id` alapján visszaadja a "modify_app" nézetet, amely lehetővé teszi az adott Appointment rekord módosítását.
+- manage: összes Appointment modell rekordot visszaadja az "manage_appointments" nézetnek.
+
+AdminController:
+- addview: visszaadja a "add_room" nézetet, amely lehetővé teszi egy új tanulószoba hozzáadását.
+- manage_users: összes User modell rekordot visszaadja a "manageusers" nézetnek.
+- upload: hozzáad egy új Room modell rekordot a Request objektumban található adatok alapján, majd visszaállítja az előző oldalt a "Sikeresen létrehoztad a tanulószobát" üzenettel.
+- giveAdmin: a megadott `id` alapján frissíti a megadott User modell rekordjának usertype mezőjét "1"-re, majd visszatér az előző oldalra.
+- removeAdmin: a megadott `id` alapján frissíti a megadott User modell rekordjának usertype mezőjét "0"-ra, majd visszatér az előző oldalra.
+- update_user: a megadott `id` alapján visszaadja az "update" nézetet, amely lehetővé teszi a User modell rekord módosítását.
+- edituser: a megadott `id` alapján frissíti a megadott User modell rekordjának mezőit a Request objektumban található adatok alapján, majd visszaállítja az előző oldalt a "Sikeresen módosítottad" üzenettel.
+
+
+HomeController:
+
+- appointment: Létrehoz egy új Appointment modell rekordot a Request objektumban található adatok alapján, majd visszatér az előző oldalra a "Foglalás megtörtént, hamarosan értesítünk." üzenettel.
+- create_appointment: Visszaadja a "user.create_appointment" nézetet, amely lehetővé teszi az új időpont létrehozását és megjeleníti az összes időpontot naptár formájában.
+- schedule: Visszaadja a "user.schedule" nézetet, amelyben a felhasználó által lefoglalt időpontok jelennek meg naptár formájában.
+- restrict: Visszatér az előző oldalra.
+- myappointments: Visszaadja a "user.myappointments" nézetet, amelyben a felhasználó által lefoglalt időpontok jelennek meg oldalakra bontva.
+- delete: Törli az adott időpontot, ha a felhasználó által létrehozott időpontről van szó és visszatér az előző oldalra a "Sikeresen törölted az időpont foglalást!" üzenettel. Ha nem sikerült törölni, visszatér az előző oldalra a "Sikertelen!" üzenettel.
+
+A fenti vezérlők és metódusok az alábbi modell osztályokkal dolgoznak:
+- Appointment: időpontfoglalások kezelése.
+- User: felhasználók kezelése.
+- Room: tanulószobák kezelése.
