@@ -16,13 +16,13 @@ Ez egy egyszerű foglalás rendszer Laravel-al, amely lehetővé teszi a felhasz
 1. Klónozza le a repót:
 
    ```
-   git clone https://github.com/username/simple-booking-laravel.git
+   git clone https://github.com/AaronL187/StudyRoom.git
    ```
 
 2. Menjen a projektmappába:
 
    ```
-   cd simple-booking-laravel
+   cd StudyRoom
    ```
 
 3. Telepítse a függőségeket:
