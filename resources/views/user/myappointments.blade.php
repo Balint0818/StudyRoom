@@ -5,26 +5,28 @@
 
 <?php
 session(['can_access_appointment' => true]);
-$isAll = true; // Set initial value to false
+$isAll = false; // Set initial value to false
 ?>
 
 <script>
+
     $(document).ready(function () {
-        var isShowingCurrent = false; // Set initial value to false
         var $toggleButton = $('#toggleButton');
         var $appointmentsTable = $('#appointmentsTable');
         var $header = $('#appointmentsHeader');
 
+        var isShowingCurrent = false; // Set initial value to false
+
         $toggleButton.on('click', function () {
             isShowingCurrent = !isShowingCurrent;
+            updateAppointmentsVisibility();
+        });
+
+        function updateAppointmentsVisibility() {
             $appointmentsTable.find('tbody tr').each(function () {
                 var $row = $(this);
-                if (isShowingCurrent) {
-                    var startTime = $row.find('td:eq(2)').text();
-                    $row.toggle(startTime && new Date(startTime) > new Date());
-                } else {
-                    $row.show();
-                }
+                var startTime = $row.find('td:eq(2)').text();
+                $row.toggle(isShowingCurrent || (startTime && new Date(startTime) > new Date()));
             });
 
             if (isShowingCurrent) {
@@ -34,8 +36,6 @@ $isAll = true; // Set initial value to false
                 $toggleButton.text('Jelenlegi');
                 $header.text('Összes foglalás');
             }
-
-            // Disable "Törlés" button for past bookings
             var $deleteButtons = $appointmentsTable.find('.delete-button');
             $deleteButtons.each(function () {
                 var startTime = $(this).closest('tr').find('td:eq(2)').text();
@@ -45,7 +45,10 @@ $isAll = true; // Set initial value to false
                     $(this).prop('disabled', false);
                 }
             });
-        });
+        }
+
+        // Initial update of appointments visibility
+        updateAppointmentsVisibility();
     });
 </script>
 
@@ -94,11 +97,14 @@ $isAll = true; // Set initial value to false
                         <td>{{ $appointment->nk }}</td>
                         <td>{{ $appointment->message }}</td>
                         <td>
-                            <a href="{{url('delete',$appointment->id)}}" class="btn btn-danger delete-button"
-                               @if($appointment->starttime && new Date($appointment->starttime) <= new Date()) disabled @endif>
-                                Törlés
-                            </a>
+                            @if($appointment->starttime && new Date($appointment->starttime) <= new Date())
+                                <button class="btn btn-danger delete-button" disabled>Törlés</button>
+                            @else
+                                <a href="{{url('delete',$appointment->id)}}"
+                                   class="btn btn-danger delete-button">Törlés</a>
+                            @endif
                         </td>
+
                     </tr>
                 @empty
                     <tr>

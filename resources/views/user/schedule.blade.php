@@ -20,11 +20,12 @@
             header: {
                 left: 'prev next today',
                 center: 'title',
-                right: 'month, agendaWeek',
+                right: 'month,agendaWeek' // Remove the unnecessary comma
             },
             events: appointment
-        })
+        });
     });
+
 </script>
 </body>
 </html>
