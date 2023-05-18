@@ -41,18 +41,18 @@ class HomeController extends Controller
     {
         $data = new appointment;
 
-        $data->name = $request->name;
-        $data->email = $request->email;
+        $data->name = Auth::user()->name;
+        $data->email = Auth::user()->email;
         $data->starttime = $request->starttime;
         $data->endtime = $request->endtime;
         $data->room = $request->room;
-        $data->nk = $request->nk;
+        $data->nk = Auth::user()->nk;
         $data->message = $request->message;
         $data->status = 'Folyamatban';
         $data->user_id = Auth::user()->id;
         $data->save();
 
-            return redirect()->back()->with('message', 'Fogalalás megtörtént, hamarosan értesítünk.');
+        return redirect()->back()->with('message', 'Fogalalás megtörtént, hamarosan értesítünk.');
 
 
 

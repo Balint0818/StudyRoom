@@ -42,50 +42,7 @@
     @include('admin.sidebar')
     <!-- partial -->
     @include('admin.navbar')
-    <div class="container-fluid page-body-wrapper">
-
-        <div class="container" align="center" style="padding-top: 100px">
-            @if(session()->has('message'))
-                <div class="alert alert-success">
-                    <button type="button" class="close" data-dismiss="alert">
-                        X
-                    </button>
-                    {{session()->get('message')}}
-
-                </div>
-            @endif
-            <div class="container-fluid page-body-wrapper">
-                <div align="center" style="padding: 100px">
-                    <table>
-                        <tr>
-                            <th style="padding: 10px">ID</th>
-                            <th style="padding: 10px">Név</th>
-                            <th style="padding: 10px">Neptun kód</th>
-                            <th style="padding: 20px">Ettől</th>
-                            <th style="padding: 20px">Eddig</th>
-                            <th style="padding: 10px">Módosítás</th>
-                            <th style="padding: 10px">Törlés</th>
-                        </tr>
-                        @foreach($data as $appointment)
-                            <tr align="center" style="background: #bababa">
-                                <td style="padding: 10px">{{$appointment->id}}</td>
-                                <td style="padding: 10px">{{$appointment->name}}</td>
-                                <td style="padding: 10px">{{$appointment->nk}}</td>
-                                <td style="padding: 30px">{{$appointment->starttime}}</td>
-                                <td style="padding: 30px">{{$appointment->endtime}}</td>
-                                <td><a href="{{url('modify_app',$appointment->id)}}"
-                                       class="btn btn-success">Módosítás</a></td>
-                                </td>
-                                <td><a href="{{url('deleteAppointment',$appointment->id)}}" class="btn btn-danger">Törlés</a>
-                                </td>
-                                </td>
-                            </tr>
-                        @endforeach
-
-
-                    </table>
-                </div>
-
+@include('admin.appointments_draw')
 @include('admin.script')
 </body>
 </html>

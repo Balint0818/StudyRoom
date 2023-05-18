@@ -26,7 +26,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="#"><span class="text-primary">Study</span>-Room</a>
+            <a class="navbar-brand" href="{{url('home')}}"><span class="text-primary">Study</span>-Room</a>
 
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport"
