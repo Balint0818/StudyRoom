@@ -37,29 +37,22 @@ class HomeController extends Controller
 
     }
 
-    protected function appointment(Request $request)
+    public function appointment(Request $request)
     {
-        if (Auth::id()) {
-            $data = new appointment;
+        $data = new appointment;
 
-            $data->name = $request->name;
-            $data->email = $request->email;
-            $data->starttime = $request->starttime;
-            $data->endtime = $request->endtime;
-            $data->room = $request->room;
-            $data->nk = $request->nk;
-            $data->message = $request->message;
-            $data->status = 'Folyamatban';
-            if (Auth::id()) {
-                $data->user_id = Auth::user()->id;
-            }
-
-            $data->save();
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->starttime = $request->starttime;
+        $data->endtime = $request->endtime;
+        $data->room = $request->room;
+        $data->nk = $request->nk;
+        $data->message = $request->message;
+        $data->status = 'Folyamatban';
+        $data->user_id = Auth::user()->id;
+        $data->save();
 
             return redirect()->back()->with('message', 'Fogalalás megtörtént, hamarosan értesítünk.');
-        } else {
-            return redirect()->back();
-        }
 
 
 
@@ -67,7 +60,6 @@ class HomeController extends Controller
 
     public function create_appointment()
     {
-        if (Auth::id()) {
             $appointments = Appointment::all();
             $events = array();
             foreach ($appointments as $appointment) {
@@ -79,10 +71,6 @@ class HomeController extends Controller
             }
             $rooms = Room::all();
             return view('user.create_appointment', ['room' => $rooms], ['events' => $events]);
-
-        } else {
-            return redirect()->back();
-        }
     }
 
 
@@ -103,17 +91,7 @@ class HomeController extends Controller
 
     public function admin_view()
     {
-        if (Auth::id()) {
-            if (Auth::user()->usertype == '1') {
-                return view('admin.home');
-            } else {
-                return redirect()->back();
-            }
-
-        } else {
-            return redirect()->back();
-        }
-
+        return view('admin.adminpanel');
     }
 
     public function restrict()

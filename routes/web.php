@@ -9,6 +9,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AppointmentController;
 
 use App\Http\Middleware\checkAdmin;
+use App\Http\Middleware\checkLoggedIn;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,15 +43,15 @@ Route::post('/upload_rooms', [AdminController::class, 'upload'])->middleware('ch
 
 Route::get('/upload_rooms', [HomeController::class, 'restrict']);
 
-Route::post('/appointment', [HomeController::class, 'appointment']);
+Route::post('/appointment', [HomeController::class, 'appointment'])->middleware('checkLoggedIn');
 
 Route::get('/appointment', [HomeController::class, 'restrict']);
 
-Route::get('/myappointments', [HomeController::class, 'myappointments']);
+Route::get('/myappointments', [HomeController::class, 'myappointments'])->middleware('checkLoggedIn');
 
-Route::get('/delete/{id}', [HomeController::class, 'delete']);
+Route::get('/delete/{id}', [HomeController::class, 'delete'])->middleware('checkLoggedIn');
 
-Route::get('/create_appointment', [HomeController::class, 'create_appointment']);
+Route::get('/create_appointment', [HomeController::class, 'create_appointment'])->middleware('checkLoggedIn');
 
 Route::get('/schedule', [HomeController::class, 'schedule']);
 
