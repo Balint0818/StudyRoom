@@ -80,6 +80,10 @@
                         <option value="Harmadik emelet">Harmadik emelet</option>
                         <option value="Negyedik emelet">Negyedik emelet</option>
                         <option value="Ötödik emelet">Ötödik emelet</option>
+                        <option value="Hatodik emelet">Hatodik emelet</option>
+                        <option value="Hetedik emelet">Hetedik emelet</option>
+                        <option value="Nyolcadik emelet">Nyolcadik emelet</option>
+                        <option value="Kilencedik emelet">Kilencedik emelet</option>
 
 
                     </select>

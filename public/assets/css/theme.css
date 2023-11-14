@@ -826,20 +826,20 @@ a.text-dark:hover, a.text-dark:focus {
   pointer-events: none;
 }
 
-
 .topbar {
-  border-bottom: 1px solid #E8EEE4;
+  border-bottom: 1px solid #242943;
+  min-height: 50px; /* Adjust the desired height */
 }
 
 .topbar .row {
   align-items: center;
-  min-height: 36px;
+  min-height: 100%; /* Set to 100% to fill the .topbar's height */
 }
 
 .topbar .site-info a {
   display: inline-flex;
   align-items: center;
-  color: #A1AAA7;
+  color: #ffffff;
 }
 
 .topbar .site-info a:hover {
@@ -857,16 +857,6 @@ a.text-dark:hover, a.text-dark:focus {
   color: #BEC8B8;
 }
 
-.topbar .social-mini-button a {
-  display: inline-block;
-  padding: 4px 8px;
-  color: #A1AAA7;
-}
-
-.topbar .social-mini-button a:hover {
-  text-decoration: none;
-  color: #6E807A;
-}
 
 
 .btn {
@@ -878,11 +868,11 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .breadcrumb-dark .breadcrumb-item a {
-  color: #00D9A5;
+  color: #50ADC9;
 }
 
 .breadcrumb-dark .breadcrumb-item a:hover {
-  color: #07be94;
+  color: #50ADC9;
   text-decoration: none;
 }
 
@@ -935,7 +925,7 @@ a.text-dark:hover, a.text-dark:focus {
 .navbar-light .navbar-nav .nav-link.show,
 .navbar-light .navbar-nav .nav-link.active {
   font-weight: 500;
-  color: #00D9A5;
+  color: #50ADC9;
 }
 
 
@@ -1027,8 +1017,8 @@ a.text-dark:hover, a.text-dark:focus {
 .page-item.active .page-link {
   z-index: 3;
   color: #fff;
-  background-color: #00D9A5;
-  border-color: #00D9A5;
+  background-color: #50ADC9;
+  border-color: #50ADC9;
 }
 
 .page-item.disabled .page-link {
@@ -1299,6 +1289,10 @@ a.text-dark:hover, a.text-dark:focus {
   border-radius: 4px;
   box-shadow: 0 2px 6px rgba(154, 159, 151, 0.2);
   overflow: hidden;
+  transition: transform 0.3s;
+}
+.card-doctor:hover {
+  transform: scale(1.1); /* Increase the scale to make it grow on hover */
 }
 
 .card-doctor .text-xl {
@@ -1722,7 +1716,7 @@ a.text-dark:hover, a.text-dark:focus {
   display: block;
   padding-top: 80px;
   padding-bottom: 16px;
-  background-color: #2D3B38;
+  background-color: #242943;
   color: #fff;
 }
 
@@ -1819,7 +1813,7 @@ a.text-dark:hover, a.text-dark:focus {
 .owl-carousel .owl-nav button.owl-prev {
   display: inline-block;
   padding: 6px 0 !important;
-  background-color: #00D9A5;
+  background-color: #50ADC9;
   color: #fff;
 }
 

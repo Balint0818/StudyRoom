@@ -39,7 +39,7 @@ session(['can_access_appointment' => true]);
                     </div>
                     <div>
                         <button type="submit" class="btn btn-primary mt-3 wow "
-                                style="visibility: visible;background: green">Send
+                                style="visibility: visible;background: #50ADC9">Send
                         </button>
                     </div>
                 </div>

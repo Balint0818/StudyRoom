@@ -77,12 +77,12 @@ $isAll = false; // Set initial value to false
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Start Time</th>
-                    <th scope="col">End Time</th>
-                    <th scope="col">Room</th>
-                    <th scope="col">Neptun Code</th>
-                    <th scope="col">Message</th>
+                    <th scope="col">Név</th>
+                    <th scope="col">Foglalás kezdete</th>
+                    <th scope="col">Foglalás vége</th>
+                    <th scope="col">Tanulószoba</th>
+                    <th scope="col">Neptun kód</th>
+                    <th scope="col">Üzenet</th>
                     <th scope="col">Foglalás törlése</th>
                 </tr>
                 </thead>
