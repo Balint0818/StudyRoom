@@ -39,6 +39,8 @@ Route::get('/add_room_view', [AdminController::class, 'addview'])->middleware('c
 
 Route::get('/manage_users', [AdminController::class, 'manage_users'])->middleware('checkAdmin');
 
+Route::get('/manage_userstest', [AdminController::class, 'manage_userstest'])->middleware('checkAdmin');
+
 Route::post('/upload_rooms', [AdminController::class, 'upload'])->middleware('checkAdmin');
 
 Route::get('/upload_rooms', [HomeController::class, 'restrict']);
@@ -56,6 +58,8 @@ Route::get('/create_appointment', [HomeController::class, 'create_appointment'])
 Route::get('/schedule', [HomeController::class, 'schedule']);
 
 Route::get('/adminpanel', [HomeController::class, 'admin_view'])->middleware('checkAdmin');
+
+Route::get('/test', [AdminController::class, 'testView'])->middleware('checkAdmin');
 
 Route::get('/giveAdmin/{id}', [AdminController::class, 'giveAdmin'])->middleware('checkAdmin');
 

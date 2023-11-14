@@ -20,11 +20,22 @@ class AdminController extends Controller
         return view('admin.add_room');
 
     }
+    public function testView()
+    {
+        return view('admin.test');
+
+    }
 
     public function manage_users()
     {
         $users = User::all();
         return view('admin.manageusers', compact('users'));
+    }
+
+    public function manage_userstest()
+    {
+        $users = User::all();
+        return view('admin.test_manageusers', compact('users'));
     }
 
     public function upload(Request $request)
